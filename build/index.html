@@ -7,36 +7,69 @@
     <title>Find My Cash</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
-<body>
-    <header class="w-screen fixed top-0 bg-emerald-500 p-4 text-teal-50 z-50"> <!-- there's styling for it in css file in md query -->
+<body class="dark:bg-slate-900 selection:bg-emerald-600 selection:text-slate-100 relative">
+    <header class="w-screen fixed top-0 bg-emerald-600 p-4 text-slate-50 z-50 md:flex md:justify-between md:items-center"> <!-- there's styling for it in css file in md query -->
         <!-- logo -->
-        <h1 id="logo" class="text-4xl font-bold w-full flex justify-between md:inline-block">
+        <h1 id="logo" class="text-4xl font-bold w-full flex justify-between md:inline-block md:w-fit">
             <a href="#">FindMyCash</a>
             <button id="hamburger-icon" class="md:hidden">&#9776</button>
         </h1>
     
         <!-- nav -->
         <nav class="hidden md:inline-block">
-            <ul class=""> <!-- nav list class is in style.css -->
-                <li class="md:inline-block mx-3 nav-list">
-                    <a href="#" class="text-xl transition-opacity hover:opacity-80">Home</a>
+            <ul class="mt-6 md:mt-0 flex flex-col justify-between h-44 md:block md:h-fit"> <!-- nav list class is in style.css -->
+                <li class="md:inline-block mx-3">
+                    <a href="index.html" class="text-xl transition-opacity hover:opacity-80">Home</a>
                 </li>
     
-                <li class="md:inline-block mx-3 nav-list">
+                <li class="md:inline-block mx-3">
                     <a href="#" class="text-xl transition-opacity hover:opacity-80">Analysis</a>
                 </li>
     
-                <li class="md:inline-block mx-3 nav-list">
+                <li class="md:inline-block mx-3">
                     <a href="#" class="text-xl transition-opacity hover:opacity-80">Offline</a>
                 </li>
     
-                <li class="md:inline-block mx-3 nav-list">
+                <li class="md:inline-block mx-3">
                     <a href="#" class="text-xl transition-opacity hover:opacity-80">GitHub</a>
                 </li>
             </ul>
         </nav>
     </header>
     
+    <!-- beginning cash box -->
+    <div class="w-3/4 md:w-1/2 mt-20 bg-gray-300 dark:bg-gray-700 h-32 mx-auto md:mt-28 rounded flex flex-col justify-around items-center shadow-lg">
+        <form action="">
+            <label for="entered-money" class="text-xl md:text-2xl text-emerald-600 dark:text-indigo-300 font-medium">Enter Your Money:</label>
+
+            <input type="number" id="entered-money" class="border-t-4 border-emerald-600 shadow-xl w-20 h-8 bg-slate-200 focus:outline-none focus:border-t-0 focus:border-r-4 rounded transition-all">
+        </form>
+
+        <!-- buttons container -->
+        <div id="btns">
+            <button class="btn bg-indigo-700 hover:bg-indigo-500">Set</button>
+            <button class="btn bg-emerald-600 hover:bg-emerald-500">Add</button>
+            <button class="btn bg-red-600 hover:bg-red-500">Reset</button>
+        </div>
+    </div>
+    
+
+    <!-- purchases menu -->
+    <div id="purchases-menu" class="container md:w-1/2 mx-auto mt-8 bg-gray-300 dark:bg-gray-700 rounded p-5 flex justify-center flex-col">
+        <h1 class="text-3xl text-center text-emerald-600 dark:text-indigo-400 font-medium mb-8">Your Purchases:-</h1>
+        <ul id="purchases" class="w-5/6 mx-auto p-3">
+            <li class="bg-slate-400 dark:bg-slate-400 rounded-xl w-full flex justify-around text-2xl text-slate-900 py-3 mb-4 cursor-pointer shadow-lg">
+                <span id="purchase-name">Taxi</span>
+                <span id="purchase-price">20</span>
+            </li>
+        </ul>
+
+        <!-- add purchase button -->
+        <button id="add" class="btn bg-emerald-600 hover:bg-emerald-500 dark:bg-indigo-700 dark:hover:bg-indigo-500 hover:text-slate-900 mx-auto my-5">Add Purchase</button>
+
+        <!-- remainings -->
+        <h2 class="text-xl font-medium text-emerald-600 dark:text-indigo-300 text-center">Remaining: <span id="remaining-cash"></span> / <span id="total-cash"></span></h2>
+    </div>
 
     <script src="js/nav.js"></script>
 </body>
