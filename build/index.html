@@ -7,8 +7,8 @@
     <title>Find My Cash</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
-<body class="dark:bg-slate-900 selection:bg-emerald-600 selection:text-slate-100 relative">
-    <header class="w-screen fixed top-0 bg-emerald-600 p-4 text-slate-50 z-50 md:flex md:justify-between md:items-center"> <!-- there's styling for it in css file in md query -->
+<body class="dark:bg-slate-900 selection:bg-emerald-600 selection:text-slate-100 relative overflow-hidden">
+    <header class="w-screen fixed top-0 bg-emerald-600 dark:bg-indigo-900 p-4 text-slate-50 z-50 md:flex md:justify-between md:items-center"> <!-- there's styling for it in css file in md query -->
         <!-- logo -->
         <h1 id="logo" class="text-4xl font-bold w-full flex justify-between md:inline-block md:w-fit">
             <a href="#">FindMyCash</a>
@@ -55,20 +55,40 @@
     
 
     <!-- purchases menu -->
-    <div id="purchases-menu" class="container md:w-1/2 mx-auto mt-8 bg-gray-300 dark:bg-gray-700 rounded p-5 flex justify-center flex-col">
+    <div id="purchases-menu" class="w-3/4 md:w-1/2 mx-auto mt-8 bg-gray-300 dark:bg-gray-700 rounded p-5 flex justify-center flex-col">
         <h1 class="text-3xl text-center text-emerald-600 dark:text-indigo-400 font-medium mb-8">Your Purchases:-</h1>
         <ul id="purchases" class="w-5/6 mx-auto p-3">
-            <li class="bg-slate-400 dark:bg-slate-400 rounded-xl w-full flex justify-around text-2xl text-slate-900 py-3 mb-4 cursor-pointer shadow-lg">
+
+            <!-- purchase item -->
+            <!-- <li class="bg-slate-400 dark:bg-slate-400 rounded-xl w-full flex justify-around text-2xl text-slate-900 py-3 mb-4 cursor-pointer shadow-lg">
                 <span id="purchase-name">Taxi</span>
                 <span id="purchase-price">20</span>
-            </li>
+            </li> -->
         </ul>
 
-        <!-- add purchase button -->
-        <button id="add" class="btn bg-emerald-600 hover:bg-emerald-500 dark:bg-indigo-700 dark:hover:bg-indigo-500 hover:text-slate-900 mx-auto my-5">Add Purchase</button>
+        <!-- buttons container -->
+        <div class="mx-auto">
+            <!-- add purchase button -->
+            <button id="add" class="btn bg-emerald-600 hover:bg-emerald-500 hover:text-slate-900 mx-auto my-5">Add Purchase</button>
+
+            <!-- add purchase button -->
+            <button id="edit" class="btn  bg-indigo-700 hover:bg-indigo-500 hover:text-slate-900 mx-auto my-5">Edit Purchases</button>
+        </div>
 
         <!-- remainings -->
         <h2 class="text-xl font-medium text-emerald-600 dark:text-indigo-300 text-center">Remaining: <span id="remaining-cash"></span> / <span id="total-cash"></span></h2>
+    </div>
+
+    <!-- pop up menu -->
+    <div id="menu" class="hidden w-screen h-screen bg-black bg-opacity-90 absolute z-50 top-0 flex justify-center items-center transition-all">
+        <div id="menu-card" class="bg-slate-300 dark:bg-slate-600 w-3/4 md:w-1/2 h-1/2 rounded shadow-lg p-3 relative">
+            <button id="exit" class="btn px-4 bg-red-700 hover:bg-red-500 cursor-pointer absolute top-3 right-3">X</button>
+            <form action="" class="flex flex-col justify-around items-center w-full h-full">
+                <input type="text" id="entered-purchase" class="border-b-4 border-emerald-500 dark:border-indigo-500 rounded-sm focus:outline-none bg-transparent dark:text-slate-100 placeholder:text-slate-600 dark:placeholder:text-slate-300 placeholder:font-bold" required placeholder="Purchase Name">
+                <input type="number" id="entered-price" class="border-b-4 border-emerald-500 dark:border-indigo-500 rounded-sm focus:outline-none bg-transparent dark:text-slate-100 placeholder:text-slate-600 dark:placeholder:text-slate-300 placeholder:font-bold" required placeholder="Price">
+                <input type="submit" value="Enter" class="btn bg-emerald-600 hover:bg-emerald-500 dark:bg-indigo-600 dark:hover:bg-indigo-500 dark:hover:text-slate-900 cursor-pointer">
+            </form>
+        </div>
     </div>
 
     <script src="js/nav.js"></script>
