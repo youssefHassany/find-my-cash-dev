@@ -16,7 +16,7 @@ function App() {
   };
 
   return (
-    <div className="dark:bg-black selection:bg-emerald-600 selection:text-slate-100 relative overflow-hidden min-h-screen">
+    <div className="dark:bg-black relative overflow-hidden min-h-screen">
       <Header navMenu={navMenu} showNavMenu={showNavMenu} />
       <PurchaseHandle />
     </div>
